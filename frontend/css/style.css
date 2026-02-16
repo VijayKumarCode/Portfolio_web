@@ -1,0 +1,415 @@
+/* =========================================
+   1. CONSTANTS (CSS Variables) 
+   ========================================= */
+:root {
+    --primary-color: #353535;
+    --secondary-color: #555555;
+    --accent-color: rgb(181, 181, 181);
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --transition-speed: 300ms;
+    --font-main: "Poppins", sans-serif;
+    --section-gap: 10vh;
+}
+
+/* =========================================
+   2. RESET & BASE STYLES
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
+}
+
+p { color: var(--secondary-color); }
+a { text-decoration: none; color: inherit; }
+li { list-style: none; }
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* =========================================
+   3. REUSABLE COMPONENTS (Buttons, Icons, Titles)
+   ========================================= */
+.section__text__p1 { 
+    text-align: center; 
+}
+.title { 
+    font-size: 3rem; text-align: center; margin-bottom: 2rem; 
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    font-weight: 600;
+    padding: 1rem 2rem;
+    min-width: 140px;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all var(--transition-speed);
+}
+
+.btn-color-1 {
+    background: var(--primary-color);
+    color: white;
+    border: var(--primary-color) 0.1rem solid;
+}
+
+.btn-color-1:hover { 
+    background: var(--text-color); 
+}
+
+.btn-color-2 {
+    background: transparent;
+    color: var(--text-color);
+    border: var(--primary-color) 0.1rem solid;
+}
+
+.btn-color-2:hover {
+    background: var(--primary-color);
+    color: white;
+}
+.icon{
+    cursor: pointer; 
+    height: 2rem; 
+    width: 2rem; 
+    display: block;        /* Ensures it behaves as a block element */
+    margin: 0 auto;
+}
+
+/* Navigation Arrow */
+.arrow {
+   position: absolute;
+    bottom: 4rem;
+    right: -5rem; /* Adjusted for better visual balance */
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform var(--transition-speed);
+}
+
+.arrow:hover {
+   transform: translateY(10px);
+}
+
+/* =========================================
+   4. NAVIGATION
+   ========================================= */
+header { height: 17vh; }
+
+nav, .nav-links {
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    justify-content: space-around;
+    height: 100%;
+}
+
+.nav-links { gap: 2rem; font-size: 1.5rem; }
+.nav-links a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+}
+
+.logo { font-size: 2rem; font-weight: 600; }
+
+/* Hamburger styles consolidated */
+#hamburger-nav { display: none; }
+.hamburger-menu { position: relative; }
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+    background: none;
+    border: none;
+}
+
+.hamburger-icon span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: 0.4s;
+}
+
+/* =========================================
+   5. SECTIONS LAYOUT
+   ========================================= */
+section {
+    padding-top: 4vh;
+    height: fit-content;
+    margin: 0 10rem;
+    box-sizing: border-box;
+    min-height: 80vh;
+    position: relative; /* Base for absolute arrows */
+}
+
+.section-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+/* =========================================
+   PROFILE SECTION (Hero)
+   ========================================= */
+#profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+
+#profile .section__pic-container {
+   display: flex;
+    height: 400px;
+    width: 400px;
+    margin: auto 0;
+    flex-shrink: 0;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+    /* BACKGROUND FIX */
+    background-color: var(--accent-color); /* Uses your light grey variable */
+    /* Alternative: background-color: #f0f0f0; (for a very light grey) */
+    
+    /* OPTIONAL: Professional "Ring" Effect */
+    border: 4px solid white;               /* Adds a white ring around the photo */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Adds depth so it sits above the page */
+}
+
+#socials-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+/* =========================================
+   ABOUT SECTION (Side-by-Side)
+   ========================================= */
+   #about {
+    position: relative;    
+    padding-top: 10vh;     
+    padding-bottom: 15vh; /* Safety buffer for the arrow and next section */
+    min-height: 80vh;
+}
+
+#about .section__pic-container {
+    height: 400px;
+    width: 400px;
+    flex-shrink: 0;
+}
+
+.about-pic {
+    border-radius: 2rem; /* Rounded Rectangle */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-details-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.about-containers {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.details-container {
+    padding: 1.5rem;
+    flex: 1;
+    background: white;
+    border-radius: 2rem;
+    border: 1px solid var(--accent-color);
+    text-align: center;
+}
+
+.text-container {
+    text-align: justify;
+    text-justify: inter-word; /* Distributes space evenly between words */
+    max-width: 700px;         /* Keeps the text block from getting too wide */
+    margin: 0 auto;          /* Keeps the whole justified block centered in the container */
+    line-height: 1.8;        /* Increases readability for justified text */
+}
+
+/* Optional: Clean hyphenation for smaller screens */
+.text-container p {
+    hyphens: auto;
+    color: var(--secondary-color);
+}
+
+/* =========================================
+   EXPERIENCE SECTION (Technical Stack)
+   ========================================= */
+
+#experience {
+    position: relative;    
+    padding-top: 10vh;     
+    padding-bottom: 15vh; /* Safety buffer for the arrow and next section */
+    min-height: 80vh;
+}
+
+.experience-details-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.article-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+article {
+    display: flex;
+    align-items: center; /* Vertically centers the checkmark with the text */
+    justify-content: flex-start; /* Keeps items aligned to the left side of the grid */
+    gap: 1rem;
+    margin: 0 auto; /* Centers the whole article block if grid is wide */
+    width: 150px;
+}
+
+article .icon {
+    display: block;
+    margin: 0; /* Remove auto-margins to keep them next to text */
+}
+
+article h3 { 
+    font-size: 1.1rem;
+ }
+article p { 
+    font-size: 0.9rem; 
+}
+
+/* =========================================
+   PROJECT SECTION (Technical Stack)
+   ========================================= */
+
+   #projects {
+    position: relative;    
+    padding-top: 7vh;     
+    padding-bottom: 5vh; /* Safety buffer for the arrow and next section */
+    min-height: 80vh;
+   }
+
+   .color-container {
+    border-color: var(--accent-color);
+    background: rgb(250, 250, 250);
+}
+
+.project-img {
+    border-radius: 2rem;
+    width: 90%;
+    height: 90%;
+    object-fit: cover; /* Ensures image doesn't stretch weirdly */
+}
+
+.project-title {
+    margin: 1rem;
+    color: var(--text-color);
+}
+
+.project-btn {
+    color: var(--text-color);
+    border-color: var(--secondary-color);
+}
+
+.project-btn:hover {
+    background: var(--text-color);
+    color: white;
+}
+
+/* RESPONSIVENESS: Ensure they stack on mobile */
+@media screen and (max-width: 1200px) {
+    .about-containers {
+        flex-wrap: wrap; /* Allows the 3rd project to wrap if screen is small */
+    }
+}
+
+/* =========================================
+   CONTACT SECTION
+   ========================================= */
+.contact-section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 600px;
+    padding: 2.5rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 2rem;
+}
+
+#contact-form input, 
+#contact-form textarea {
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid #ccc;
+    font-family: inherit;
+}
+
+/* =========================================
+   8. RESPONSIVENESS
+   ========================================= */
+@media screen and (max-width: 1200px) {
+    section { margin: 0 5%; }
+    .section-container, #profile {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    #profile .section__pic-container,
+    #about .section__pic-container {
+        width: 300px;
+        height: 300px;
+    }
+
+    .about-containers { flex-direction: column; }
+    .article-container { grid-template-columns: 1fr; }
+}
