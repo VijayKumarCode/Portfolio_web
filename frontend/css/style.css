@@ -413,3 +413,41 @@ article p {
     .about-containers { flex-direction: column; }
     .article-container { grid-template-columns: 1fr; }
 }
+
+/* =========================================
+   9. NOTIFICATIONS & FEEDBACK
+   ========================================= */
+.status-msg {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.9rem;
+    /* Animation call */
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.status-msg.success {
+    background-color: #d4edda; /* Light Green */
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status-msg.error {
+    background-color: #f8d7da; /* Light Red */
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Smooth Slide-In Animation */
+@keyframes slideIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
