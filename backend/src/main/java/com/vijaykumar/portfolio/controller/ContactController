@@ -1,20 +1,21 @@
-package com.vijaykumar.portfolio.controller;
+package com.portfolio.backend.controller;
 
-import com.vijaykumar.portfolio.model.ContactRequest;
-import jakarta.validation.Valid;
+import com.portfolio.backend.model.ContactRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/contact")
-@CrossOrigin(origins = "*") // Allows your frontend to talk to this backend
+@RequestMapping("/api/v1")
+@CrossOrigin(origins = "http://127.0.0.1:5500") // Crucial for your Live Server to work
 public class ContactController {
 
-    @PostMapping
-    public ResponseEntity<String> receiveMessage(@Valid @RequestBody ContactRequest request) {
-        // Industry practice: Logging the entry (Simulation)
-        System.out.println("Standard Check: Message received from " + request.getName());
+    @PostMapping("/contact")
+    public ResponseEntity<String> handleContact(@RequestBody ContactRequest request) {
+        // Industry Standard: Log the incoming request
+        System.out.println("Received message from: " + request.getName());
         
-        return ResponseEntity.ok("Message received successfully! I will reach out soon.");
+        // In a real Ubuntu environment, you might send an email or save to a database here
+        
+        return ResponseEntity.ok("Message received successfully, " + request.getName() + "!");
     }
 }
