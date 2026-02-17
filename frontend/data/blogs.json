@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Java Project: Banana Tic-Tac-Toe",
+    "date": "2026-02-17",
+    "category": "Java Development",
+    "image": "assets/banana_tictactoe_cover.png",
+    "description": "How I built a playable Tic-Tac-Toe game using Java Swing and later ported it to the web.",
+    "link": "#"
+  },
+  {
+    "id": 2,
+    "title": "LeetCode #100: Same Tree",
+    "date": "2026-01-14",
+    "category": "Data Structures",
+    "image": "assets/dsa-icon.png", 
+    "description": "A breakdown of my O(n) recursive solution to check if two binary trees are identical.",
+    "link": "https://leetcode.com/problems/same-tree/"
+  },
+  {
+    "id": 3,
+    "title": "Why Ubuntu is My OS of Choice",
+    "date": "2026-02-10",
+    "category": "Open Source",
+    "image": "assets/ubuntu-logo.png",
+    "description": "Exploring the stability and developer-friendly ecosystem of Linux for remote engineering.",
+    "link": "#"
+  }
+]
