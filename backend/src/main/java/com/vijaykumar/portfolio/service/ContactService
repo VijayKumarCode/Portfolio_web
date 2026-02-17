@@ -1,0 +1,22 @@
+package com.vijaykumar.portfolio.service;
+
+import com.vijaykumar.portfolio.model.ContactRequest;
+import org.springframework.stereotype.Service;
+import java.io.FileWriter;
+import java.io.IOException;
+
+@Service
+public class ContactService {
+
+    public void saveMessage(ContactRequest request) {
+        // Industry Standard: In a real app, we'd use a Database (H2/PostgreSQL)
+        // For now, we will append the message to a log file
+        try (FileWriter writer = new FileWriter("contact_messages.txt", true)) {
+            writer.write("From: " + request.getName() + " [" + request.getEmail() + "]\n");
+            writer.write("Message: " + request.getMessage() + "\n");
+            writer.write("-------------------------------------------\n");
+        } catch (IOException e) {
+            System.err.println("Could not save message: " + e.getMessage());
+        }
+    }
+}
