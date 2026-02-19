@@ -19,19 +19,25 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#blog">Blog</a></li> <li><a href="#contact">Contact</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
         
         <nav id="hamburger-nav" aria-label="Mobile Navigation">
             <div class="logo">Vijay Kumar</div>
             <div class="hamburger-menu">
-                <button class="hamburger-icon" id="hamburger-toggle" aria-label="Toggle menu">
+                <button class="hamburger-icon"
+                id="hamburger-toggle"
+                aria-label="Toggle menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu">
+
                 <span></span>
                 <span></span>
                 <span></span>
                     </button>
-                <ul class="menu-links">
+                <ul class="menu-links" id="mobile-menu">
                     <li><a href="#about">About</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
@@ -42,35 +48,38 @@
             </nav>
     </header>
 
-    <Main>
+    <main>
         <section id="profile" aria-labelledby="profile-name">
            <div class="section__pic-container">
-            <img src="./assets/pic3.png" alt="Vijay Kumar profile picture" class="profile-pic" />
+                <img src="./assets/profilePic.png" 
+                alt="Vijay Kumar profile picture" 
+                class="profile-pic" />
                 </div>
             <div class="section__text">
                  <p class="section__text__p1">Hello, I'm</p>
                 <h1 class="title">Vijay Kumar</h1>
                 <p class="section__text__p2">Software Engineer | Java & Open Source</p>
-                    <div class="btn-container">
-                 <button class="btn btn-color-2" onclick="window.open('./assets/resume.pdf')">
-        Download CV
-      </button>
-      <button class="btn btn-color-1" onclick="location.href='./#contact'">
-        Contact Info
-      </button>
-    </div>
+                <div class="btn-container">
+                     <button class="btn btn-color-2" onclick="window.open('./assets/resume.pdf')">
+                        Download CV
+                        </button>
+                    <button class="btn btn-color-1" onclick="location.href='./#contact'">
+                        Contact Info
+                        </button>
+                     </div>
                 
                 <div id="socials-container">
                     <a href="https://www.linkedin.com/in/VijayKumarCode" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
                         <img src="./assets/linkdin.png" alt="LinkedIn icon" class="icon">
                     </a>
                     <a href="https://github.com/VijayKumarCode" target="_blank" rel="noopener" aria-label="GitHub Profile">
-                        <img src="./assets/github(1).png" alt="GitHub icon" class="icon">
+                        <img src="./assets/github.png" alt="GitHub icon" class="icon">
                     </a>
                     <a href="https://x.com/VijayKumarCode" target="_blank" rel="noopener" aria-label="X (Twitter) Profile">
-                        <img src="./assets/x(1).png" alt="X icon" class="icon">
+                        <img src="./assets/x.png" alt="X icon" class="icon">
                     </a>
                 </div>
+
             </div>
         </section>
 
@@ -82,7 +91,7 @@
         
         <div class="section__pic-container">
             <img 
-                src="./assets/about_0(1).png" 
+                src="./assets/aboutPic.png" 
                 alt="Vijay Kumar profile" 
                 class="about-pic" 
             />
@@ -92,12 +101,16 @@
             
             <div class="about-containers">
                 <div class="details-container">
-                    <img src="./assets/experience.png" alt="Experience icon" class="icon" />
-                    <h3>Experience</h3>
+                    <img src="./assets/experience.png"
+                        alt="Experience icon"
+                        class="icon" />
+                        <h3>Experience</h3>
                     <p>Independent <br />Software Engineer</p>
                 </div>
                 <div class="details-container">
-                    <img src="./assets/education.png" alt="Education icon" class="icon" />
+                    <img src="./assets/education.png"
+                        alt="Education icon"
+                        class="icon" />
                     <h3>Education</h3>
                     <p>MCA Masters<br />BCA Bachelors</p>
                 </div>
@@ -114,6 +127,7 @@
             
         </div>
     </div>
+
      <img 
         src="./assets/arrow.png" 
         alt="Arrow icon" 
@@ -172,7 +186,8 @@
             </div>
         </div>
     </div>
-     <img 
+
+       <img 
         src="./assets/arrow.png" 
         alt="Arrow icon" 
         class="icon arrow" 
@@ -182,7 +197,7 @@
 
         <section id="projects">
     <p class="section__text__p1">Browse My Recent</p>
-    <h1 class="title">Projects</h1>
+    <h2 class="title">Projects</h2>
     
     <div class="experience-details-container">
         <div class="about-containers">
@@ -210,6 +225,10 @@
                         onclick="window.open('https://github.com/VijayKumarCode/TicTacToe_java', '_blank')">
                         GitHub
                     </button>
+                    <button class="btn btn-color-2 project-btn" 
+                        onclick="location.href='#'">
+                        Coming Soon
+                    </button>
                      </div>
             </div>
 
@@ -233,17 +252,57 @@
         </div>
     </div>
     
-    <img src="./assets/arrow.png"
-        alt="Arrow icon"
+      <img 
+        src="./assets/arrow.png" 
+        alt="Arrow icon" 
         class="icon arrow" 
-        onclick="location.href='./#blog'">
+        onclick="location.href='./#blog'" 
+    />
+
 </section>
 
-        <section id="blog">
-            <p class="section__text__p1">Sharing My Journey</p>
-            <h2 class="title">Blog</h2>
-            </section>
+       <section id="blog">
+    <p class="section__text__p1">Sharing My Journey</p>
+    <h2 class="title">Engineering Log</h2>
+    
 
+<div class="experience-details-container" style="position: relative;">
+    <div class="blog-scroll-track" id="blog-container">
+        <article class="blog-article-card">
+            <p class="category-tag">Backend</p>
+            <h3>Java Multithreading</h3>
+            <p>Deep dive into Concurrency Utilities...</p>
+            <button class="btn btn-color-1" onclick="location.href='blog-detail.html?id=1'">Read More</button>
+        </article>
+
+        <article class="blog-article-card">
+            <p class="category-tag">Linux</p>
+            <h3>Open Source at Ubuntu</h3>
+            <p>Contributing to the Linux ecosystem...</p>
+            <button class="btn btn-color-1" onclick="location.href='blog-detail.html?id=2'">Read More</button>
+        </article>
+
+        <article class="blog-article-card">
+            <p class="category-tag">DSA</p>
+            <h3>DSA for Engineers</h3>
+            <p>Optimizing Space Complexity in Java...</p>
+            <button class="btn btn-color-1" onclick="location.href='blog-detail.html?id=3'">Read More</button>
+        </article>
+    </div>
+
+    <button class="btn-move-right" id="move-btn" onclick="scrollBlogs()" aria-label="Next">
+        &#10095;
+    </button>
+</div>
+
+    <img 
+        src="./assets/arrow.png" 
+        alt="Arrow icon" 
+        class="icon arrow" 
+        onclick="location.href='./#contact'" 
+    />
+
+</section>
         <section id="contact">
             <p class="section__text__p1">Get In Touch</p>
     <h2 class="title">Contact Me</h2>
@@ -267,7 +326,7 @@
     </div>
             </section>
 
-    </Main>
+    </main>
 
     <footer>
         <nav>
@@ -282,5 +341,9 @@
         <p>Copyright &#169; 2026 Vijay Kumar. All Rights Reserved.</p>
     </footer>
 
-   <script src="js/contact.js"></script>
+   <script type="module">
+    import { BlogManager } from './js/BlogManager.js';
+    const blogApp = new BlogManager('blog-container', 'move-btn', './data/blogs.json');
+    blogApp.init();
+</script>
 </body>

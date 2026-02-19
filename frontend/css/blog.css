@@ -1,0 +1,109 @@
+/* =========================================
+   1. GLOBAL RESET (The "Nuclear" Layout Fix)
+   ========================================= */
+body.single-post-page {
+    display: block !important; 
+    overflow-x: hidden; 
+    background-color: #fff; 
+    margin: 0;
+    padding: 0;
+}
+
+.blog-main-container {
+    display: block !important; 
+    width: 95%;     
+    max-width: 800px; 
+    margin: 6rem auto !important; 
+    min-height: 80vh;
+    padding: 0 1rem;
+}
+
+.blog-post {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================================
+   2. HEADER & METADATA
+   ========================================= */
+.blog-header {
+    text-align: left; 
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2rem;
+}
+
+.post-meta {
+    color: #666;
+    font-size: 0.95rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.post-meta strong {
+    color: var(--text-color, #111);
+    font-weight: 600;
+}
+
+.category-tag {
+    display: inline-block;
+    color: #2b6cb0;
+    background: #ebf8ff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+}
+
+/* =========================================
+   3. TEXT JUSTIFICATION (The Request)
+   ========================================= */
+.blog-content {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #292929;
+    font-family: 'Georgia', serif;
+    
+    /* Forces justification on all text inside this container */
+    text-align: justify !important;
+    text-justify: inter-word !important;
+}
+
+.blog-content p {
+    margin-bottom: 1.5rem;
+    text-align: justify !important; /* Ensures paragraphs are justified */
+}
+
+/* Stop justification for code, headers, and images */
+.blog-content pre, 
+.blog-content code, 
+.blog-content img,
+.blog-content h1, 
+.blog-content h2, 
+.blog-content h3 {
+    text-align: left !important;
+}
+
+/* =========================================
+   4. CODE & FOOTER
+   ========================================= */
+pre {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 2.5rem 0;
+    font-family: 'Fira Code', monospace;
+}
+
+.blog-footer {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid #ddd;
+}

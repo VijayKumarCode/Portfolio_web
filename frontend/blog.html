@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post | Engineering Log</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/blog.css"> 
+    <link rel="stylesheet" href="css/blog.css">
 </head>
-<body>
+<body class="single-post-page">
     <nav id="desktop-nav">
         <div class="logo">Vijay Kumar</div>
         <ul class="nav-links">
@@ -17,24 +17,33 @@
     </nav>
 
     <main class="blog-main-container">
-        <article class="blog-post">
-            <header class="blog-header">
-                <p class="category-tag" id="post-category">Category</p>
-                <h1 class="blog-title" id="post-title">Loading...</h1>
-                <div class="post-meta">
-                    <span id="post-date">Date</span> • <span>5 min read</span>
-                </div>
-            </header>
-            
-            <div class="blog-content" id="post-content">
-                </div>
-            
-            <footer class="blog-footer">
-                <button class="btn btn-color-1" onclick="location.href='index.html#blog'">
-                    ← Back to Blog
-                </button>
-            </footer>
-        </article>
+       <article class="blog-post">
+        <ol class="flex items-center space-x-2 text-sm text-gray-500">
+            <li>
+                <a class="transition-colors hover:text-gray-700"
+                  href="index.html">Home</a></li><li><span class="mx-2 text-gray-300">/</span>
+                </li>
+            <li>
+                <a class="transition-colors hover:text-gray-700"
+                 href="index.html#blog">All Posts</a></li><li><span class="mx-2 text-gray-300">/</span>
+                </li>
+            <li class="max-w-xs truncate font-medium text-gray-900" title="Java Project: Banana Tic-Tac-Toe">Java Project: Banana Tic-Tac-Toe         
+            </li>
+        </ol>
+
+        <header class="blog-header">
+            <span class="category-tag" id="post-category">java-dsa</span>
+            <h1 class="blog-title" id="post-title">Loading...</h1>
+            <div class="post-meta">
+                <span>👤 <strong>Vijay Kumar</strong></span> • 
+                <span id="post-date">Feb 18, 2026</span> • 
+                <span id="post-read-time">5 min read</span>
+            </div>
+        </header>
+
+        <div class="blog-content" id="post-content">
+            </div>
+    </article>
     </main>
 
     <script src="js/blog.js"></script>

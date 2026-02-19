@@ -1,20 +1,22 @@
 /* =========================================
-   1. CONSTANTS (CSS Variables) 
-   ========================================= */
+   ROOT VARIABLES
+========================================= */
 :root {
-    --primary-color: #353535;
-    --secondary-color: #555555;
-    --accent-color: rgb(181, 181, 181);
-    --bg-color: #ffffff;
-    --text-color: #000000;
-    --transition-speed: 300ms;
-    --font-main: "Poppins", sans-serif;
-    --section-gap: 10vh;
+    --primary: #1f2937;
+    --secondary: #4b5563;
+    --accent: #2563eb;
+    --bg: #ffffff;
+    --light-bg: #f9fafb;
+    --border: #e5e7eb;
+    --radius: 1.5rem;
+    --transition: 0.3s ease;
+    --max-width: 1200px;
+    --font: "Poppins", sans-serif;
 }
 
 /* =========================================
-   2. RESET & BASE STYLES
-   ========================================= */
+   RESET
+========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -26,190 +28,153 @@ html {
 }
 
 body {
-    font-family: var(--font-main);
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--primary);
     line-height: 1.6;
-    overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
 }
 
-p { color: var(--secondary-color); }
-a { text-decoration: none; color: inherit; }
-li { list-style: none; }
-
-img {
-    max-width: 100%;
-    display: block;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-/* =========================================
-   3. REUSABLE COMPONENTS (Buttons, Icons, Titles)
-   ========================================= */
-.section__text__p1 { 
-    text-align: center; 
-}
-.title { 
-    font-size: 3rem; text-align: center; margin-bottom: 2rem; 
+ul {
+    list-style: none;
 }
 
-.btn-container {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 1rem;
+/* Hide mobile nav on desktop */
+#hamburger-nav {
+    display: none;
 }
 
-.btn {
-    font-weight: 600;
-    padding: 1rem 2rem;
-    min-width: 140px;
-    border-radius: 2rem;
-    cursor: pointer;
-    font-family: inherit;
-    transition: all var(--transition-speed);
-}
+/* Hide desktop nav on mobile */
+@media (max-width: 768px) {
 
-.btn-color-1 {
-    background: var(--primary-color);
-    color: white;
-    border: var(--primary-color) 0.1rem solid;
-}
+    #desktop-nav {
+        display: none;
+    }
 
-.btn-color-1:hover { 
-    background: var(--text-color); 
-}
+    #hamburger-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
 
-.btn-color-2 {
-    background: transparent;
-    color: var(--text-color);
-    border: var(--primary-color) 0.1rem solid;
-}
+    .menu-links {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: white;
+        padding: 1rem;
+        border-radius: 1rem;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
 
-.btn-color-2:hover {
-    background: var(--primary-color);
-    color: white;
-}
-.icon{
-    cursor: pointer; 
-    height: 2rem; 
-    width: 2rem; 
-    display: block;        /* Ensures it behaves as a block element */
-    margin: 0 auto;
-}
-
-/* Navigation Arrow */
-.arrow {
-   position: absolute;
-    bottom: 4rem;
-    right: -5rem; /* Adjusted for better visual balance */
-    height: 2rem;
-    width: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: transform var(--transition-speed);
-}
-
-.arrow:hover {
-   transform: translateY(10px);
+    .menu-links.open {
+        display: flex;
+    }
 }
 
 /* =========================================
-   4. NAVIGATION
-   ========================================= */
-header { height: 17vh; }
-
-nav, .nav-links {
-    display: flex;
-    align-items: center;
-}
-
-nav {
-    justify-content: space-around;
-    height: 100%;
-}
-
-.nav-links { gap: 2rem; font-size: 1.5rem; }
-.nav-links a:hover {
-    color: var(--accent-color);
-    text-decoration: underline;
-    text-underline-offset: 1rem;
-}
-
-.logo { font-size: 2rem; font-weight: 600; }
-
-/* Hamburger styles consolidated */
-#hamburger-nav { display: none; }
-.hamburger-menu { position: relative; }
-.hamburger-icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 24px;
-    width: 30px;
-    background: none;
-    border: none;
-}
-
-.hamburger-icon span {
-    width: 100%;
-    height: 2px;
-    background-color: var(--text-color);
-    transition: 0.4s;
-}
-
-/* =========================================
-   5. SECTIONS LAYOUT
-   ========================================= */
+   GLOBAL SECTIONS
+========================================= */
 section {
-    padding-top: 4vh;
-    height: fit-content;
-    margin: 0 10rem;
-    box-sizing: border-box;
-    min-height: 80vh;
-    position: relative; /* Base for absolute arrows */
+    padding: 6rem 2rem;
+    position: relative;
 }
 
 .section-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.section__text__p1 {
+    text-align: center;
+    color: var(--secondary);
+    /*margin-bottom: 0.5rem;*/
+}
+
+.title {
+    text-align: center;
+    font-size: 2.8rem;
 }
 
 /* =========================================
-   PROFILE SECTION (Hero)
-   ========================================= */
-#profile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5rem;
+   NAVIGATION
+========================================= */
+header {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
 }
 
-#profile .section__pic-container {
-   display: flex;
-    height: 400px;
-    width: 400px;
-    margin: auto 0;
-    flex-shrink: 0;
+nav {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* =========================================
+   HERO SECTION
+========================================= */
+#profile {
+    display: flex;
+    justify-content: center;   /* Centers the whole group horizontally */
+    align-items: center;       /* Vertical alignment */
+    gap: 3rem;
 }
 
 .profile-pic {
+    width: 380px;
+    height: 380px;
     border-radius: 50%;
-    width: 100%;
-    height: 100%;
     object-fit: cover;
-    
-    /* BACKGROUND FIX */
-    background-color: var(--accent-color); /* Uses your light grey variable */
-    /* Alternative: background-color: #f0f0f0; (for a very light grey) */
-    
-    /* OPTIONAL: Professional "Ring" Effect */
-    border: 4px solid white;               /* Adds a white ring around the photo */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Adds depth so it sits above the page */
+    background-color: #f0f0f0;
+    border: 6px solid #ffffff; /* Clean white border */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
+
+.section__text {
+   max-width: 500px;
+}
+
+.section__text__p2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
 
 #socials-container {
     display: flex;
@@ -219,47 +184,86 @@ section {
 }
 
 /* =========================================
-   ABOUT SECTION (Side-by-Side)
-   ========================================= */
-   #about {
-    position: relative;    
-    padding-top: 10vh;     
-    padding-bottom: 15vh; /* Safety buffer for the arrow and next section */
-    min-height: 80vh;
+   BUTTONS
+========================================= */
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
-#about .section__pic-container {
-    height: 400px;
-    width: 400px;
-    flex-shrink: 0;
+.btn {
+    padding: 0.8rem 1.8rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+}
+
+.btn-color-1 {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-color-1:hover {
+    opacity: 0.85;
+}
+
+.btn-color-2 {
+    background: transparent;
+    border: 1px solid var(--primary);
+}
+
+.btn-color-2:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* ICON SIZE CONTROL */
+.icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* =========================================
+   ABOUT SECTION
+========================================= */
+
+.section-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.section__pic-container {
+    flex: 0 1 350px;
+    display: flex;
+    justify-content: center;
 }
 
 .about-pic {
-    border-radius: 2rem; /* Rounded Rectangle */
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    border-radius: 2rem;
 }
 
 .about-details-container {
+    flex: 0 1 500px;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    gap: 2rem;
 }
 
 .about-containers {
-    display: flex;
+     display: flex;
+    justify-content: center;
     gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.details-container {
-    padding: 1.5rem;
-    flex: 1;
-    background: white;
-    border-radius: 2rem;
-    border: 1px solid var(--accent-color);
-    text-align: center;
+    flex-wrap: wrap;
 }
 
 .text-container {
@@ -267,275 +271,204 @@ section {
     text-justify: inter-word; /* Distributes space evenly between words */
     max-width: 700px;         /* Keeps the text block from getting too wide */
     margin: 0 auto;          /* Keeps the whole justified block centered in the container */
-    line-height: 1.8;        /* Increases readability for justified text */
+    line-height: 1.8;
 }
 
-/* Optional: Clean hyphenation for smaller screens */
-.text-container p {
-    hyphens: auto;
-    color: var(--secondary-color);
+.details-container {
+    flex: 0 1 220px;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-align: center;
+    background: var(--light-bg);
+    transition: var(--transition);
 }
+
+.details-container:hover {
+    transform: translateY(-5px);
+}
+
+.arrow {
+    position: absolute;
+    bottom: 5rem;
+    right: 5rem;
+    width: 30px;
+    cursor: pointer;
+}
+
+.arrow:hover {
+    transform: translateY(5px);
+    transition: 0.3s ease;
+}
+
 
 /* =========================================
-   EXPERIENCE SECTION (Technical Stack)
-   ========================================= */
+   EXPERIENCE
+========================================= */
 
-#experience {
-    position: relative;    
-    padding-top: 10vh;     
-    padding-bottom: 15vh; /* Safety buffer for the arrow and next section */
-    min-height: 80vh;
-}
-
-.experience-details-container {
+#experience .section-container {
     display: flex;
     justify-content: center;
+    align-items: stretch;  /* THIS makes them equal height */
+    gap: 3rem;
+    flex-wrap: wrap;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+#experience .details-container {
+    flex: 1 1 450px;
+    max-width: 500px;
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--light-bg);
+    display: flex;
     flex-direction: column;
 }
 
+.experience-sub-title {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+
 .article-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr;  /* 2 columns */
+    gap: 1.5rem 2rem;
 }
 
 article {
     display: flex;
-    align-items: center; /* Vertically centers the checkmark with the text */
-    justify-content: flex-start; /* Keeps items aligned to the left side of the grid */
-    gap: 1rem;
-    margin: 0 auto; /* Centers the whole article block if grid is wide */
-    width: 150px;
+    align-items: flex-start;
+    gap: 0.8rem;
 }
 
 article .icon {
-    display: block;
-    margin: 0; /* Remove auto-margins to keep them next to text */
+    width: 22px;
+    height: 22px;
+    margin-top: 4px;
 }
 
-article h3 { 
-    font-size: 1.1rem;
- }
-article p { 
-    font-size: 0.9rem; 
+article h3 {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+article p {
+    font-size: 0.85rem;
+    color: var(--secondary);
 }
 
 /* =========================================
-   PROJECT SECTION (Technical Stack)
-   ========================================= */
-
-   #projects {
-    position: relative;    
-    padding-top: 7vh;     
-    padding-bottom: 5vh; /* Safety buffer for the arrow and next section */
-    min-height: 80vh;
-   }
-
-   .color-container {
-    border-color: var(--accent-color);
-    background: rgb(250, 250, 250);
+   PROJECTS
+========================================= */
+.project-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius);
 }
 
-.project-img {
-    border-radius: 2rem;
-    width: 90%;
-    height: 90%;
-    object-fit: cover; /* Ensures image doesn't stretch weirdly */
+.color-container {
+    background: var(--light-bg);
 }
 
 .project-title {
-    margin: 1rem;
-    color: var(--text-color);
+    margin: 1rem 0;
 }
 
-.project-btn {
-    color: var(--text-color);
-    border-color: var(--secondary-color);
-}
-
-.project-btn:hover {
-    background: var(--text-color);
-    color: white;
-}
-
-/* RESPONSIVENESS: Ensure they stack on mobile */
-@media screen and (max-width: 1200px) {
-    .about-containers {
-        flex-wrap: wrap; /* Allows the 3rd project to wrap if screen is small */
-    }
+.details-container.color-container:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 /* =========================================
-   CONTACT SECTION
-   ========================================= */
-.contact-section-container {
+   BLOG
+========================================= */
+#blog {
+  position: relative;
+}
+
+.blog-scroll-track {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 2rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.blog-article-card {
+    min-width: 280px;
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--light-bg);
+}
+
+.category-tag {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* =========================================
+   CONTACT
+========================================= */
+.contact-section-container {
+     max-width: 600px;
+     margin: 0 auto;
+    text-align: center;
 }
 
 #contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    width: 100%;
-    max-width: 600px;
-    padding: 2.5rem;
-    border: 1px solid var(--accent-color);
-    border-radius: 2rem;
+    gap: 1rem;
 }
 
-#contact-form input, 
+#contact-form input,
 #contact-form textarea {
     padding: 1rem;
     border-radius: 1rem;
-    border: 1px solid #ccc;
-    font-family: inherit;
+    border: 1px solid var(--border);
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
 }
 
 /* =========================================
-   8. RESPONSIVENESS
-   ========================================= */
-@media screen and (max-width: 1200px) {
-    section { margin: 0 5%; }
-    .section-container, #profile {
+   FOOTER
+========================================= */
+footer {
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 768px) {
+    .section-container {
         flex-direction: column;
         text-align: center;
     }
-    
-    #profile .section__pic-container,
-    #about .section__pic-container {
-        width: 300px;
-        height: 300px;
+
+    .nav-links {
+        display: none;
     }
 
-    .about-containers { flex-direction: column; }
-    .article-container { grid-template-columns: 1fr; }
-}
-
-/* =========================================
-   9. NOTIFICATIONS & FEEDBACK
-   ========================================= */
-.status-msg {
-    margin-top: 1rem;
-    padding: 1rem;
-    border-radius: 1rem;
-    font-weight: 600;
-    text-align: center;
-    font-size: 0.9rem;
-    /* Animation call */
-    animation: slideIn 0.5s ease-out forwards;
-}
-
-.status-msg.success {
-    background-color: #d4edda; /* Light Green */
-    color: #155724;
-    border: 1px solid #c3e6cb;
-}
-
-.status-msg.error {
-    background-color: #f8d7da; /* Light Red */
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-
-/* Smooth Slide-In Animation */
-@keyframes slideIn {
-    from { 
-        opacity: 0; 
-        transform: translateY(-20px); 
+    #hamburger-nav {
+        display: flex;
     }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
+
+    .profile-pic {
+        width: 280px;
+        height: 280px;
     }
-}
-
-/* =========================================
-   10. BLOG SPECIFIC STYLES
-   ========================================= */
-
-.blog-main-container {
-    padding: 10vh 2rem;
-    max-width: 850px; 
-    margin: 0 auto;
-}
-
-.blog-post-wrapper {
-    background: white;
-    padding: 2rem;
-}
-
-.blog-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.category-tag {
-    color: var(--primary-color);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.blog-title {
-    font-size: 3rem;
-    margin: 1rem 0;
-    line-height: 1.2;
-}
-
-.post-meta {
-    color: var(--secondary-color);
-    font-style: italic;
-    margin-top: 0.5rem;
-}
-
-.blog-content {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: #333;
-    text-align: justify;
-}
-
-/* =========================================
-   11. TECHNICAL CODE SNIPPETS
-   ========================================= */
-pre {
-    background: #1e1e1e; /* Dark theme for code (Very Industry Standard) */
-    color: #dcdcdc;
-    padding: 1.5rem;
-    border-radius: 10px;
-    overflow-x: auto;
-    margin: 2rem 0;
-    border-left: 5px solid var(--primary-color);
-    font-family: 'Fira Code', 'Courier New', monospace;
-    font-size: 0.95rem;
-}
-
-code {
-    background-color: #f4f4f4;
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-    color: #d63384; /* Highlighted inline code color */
-}
-
-/* =========================================
-   12. RESPONSIVENESS
-   ========================================= */
-@media screen and (max-width: 800px) {
-    .blog-main-container {
-        padding: 5vh 1.5rem;
-    }
-    
-    .blog-title {
-        font-size: 2.2rem;
-    }
-    
-    .blog-content {
-        text-align: left; /* Justified text can look messy on very narrow screens */
-    }
-}
-
-    
 }

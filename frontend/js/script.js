@@ -1,38 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Prevent page reload
+    if (!contactForm) return;
 
-            // Prepare the data (matches your Java ContactRequest model)
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value
-            };
+    const submitBtn = contactForm.querySelector("button[type='submit']");
 
-            try {
-                const response = await fetch('http://localhost:8080/api/v1/contact', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-                const result = await response.text();
+        const formData = {
+            name: document.getElementById('name').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            message: document.getElementById('message').value.trim()
+        };
 
-                if (response.ok) {
-                    alert("✅ Success: " + result);
-                    contactForm.reset(); // Clear the form
-                } else {
-                    alert("❌ Error: " + result);
-                }
-            } catch (error) {
-                console.error("Connection failed:", error);
-                alert("The backend server seems to be offline!");
+        if (!formData.name || !formData.email || !formData.message) {
+            alert("All fields are required!");
+            return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+
+        try {
+            const response = await fetch('http://localhost:8080/api/v1/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(errorText || "Submission failed");
             }
-        });
-    }
+
+            const result = await response.text();
+            alert("✅ Success: " + result);
+            contactForm.reset();
+
+        } catch (error) {
+            console.error("Connection failed:", error);
+            alert("❌ " + error.message);
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send Message";
+        }
+    });
 });
