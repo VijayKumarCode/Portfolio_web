@@ -3,49 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post | Engineering Log</title>
+
+    <title>Engineering Log – Articles by Vijay Kumar</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Engineering articles on Java, DSA, Linux, and software engineering by Vijay Kumar.">
+    <meta name="author" content="Vijay Kumar">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/blog.css">
 </head>
-<body class="single-post-page">
+
+<body class="blog-list-page">
+
+    <!-- Navigation -->
     <nav id="desktop-nav">
         <div class="logo">Vijay Kumar</div>
         <ul class="nav-links">
-            <li><a href="index.html">Back to Home</a></li>
-            <li><a href="index.html#blog">All Posts</a></li>
+            <li><a href="index.html">Home</a></li>
         </ul>
     </nav>
 
+    <!-- Main Content -->
     <main class="blog-main-container">
-       <article class="blog-post">
-        <ol class="flex items-center space-x-2 text-sm text-gray-500">
-            <li>
-                <a class="transition-colors hover:text-gray-700"
-                  href="index.html">Home</a></li><li><span class="mx-2 text-gray-300">/</span>
-                </li>
-            <li>
-                <a class="transition-colors hover:text-gray-700"
-                 href="index.html#blog">All Posts</a></li><li><span class="mx-2 text-gray-300">/</span>
-                </li>
-            <li class="max-w-xs truncate font-medium text-gray-900" title="Java Project: Banana Tic-Tac-Toe">Java Project: Banana Tic-Tac-Toe         
-            </li>
-        </ol>
 
-        <header class="blog-header">
-            <span class="category-tag" id="post-category">java-dsa</span>
-            <h1 class="blog-title" id="post-title">Loading...</h1>
-            <div class="post-meta">
-                <span>👤 <strong>Vijay Kumar</strong></span> • 
-                <span id="post-date">Feb 18, 2026</span> • 
-                <span id="post-read-time">5 min read</span>
-            </div>
+        <!-- Blog Header -->
+        <header class="blog-hero">
+            <h1 class="blog-page-title">Engineering Log</h1>
+            <p class="blog-subtitle">
+                Thoughts on Java, DSA, Linux, and software engineering.
+            </p>
         </header>
 
-        <div class="blog-content" id="post-content">
-            </div>
-    </article>
+        <!-- Blog List (Dynamic Injection) -->
+        <section class="blog-list" id="blog-list">
+            <!-- Blog cards will be injected dynamically via blog.js -->
+        </section>
+
+        <!-- Load More Button -->
+        <div class="load-more-container">
+            <button id="load-more-btn" class="load-more-btn">
+                Load More
+            </button>
+        </div>
+
+        <!-- Optional: Empty State -->
+        <div class="empty-state" id="empty-state" style="display: none;">
+            <p>No articles published yet.</p>
+        </div>
+
     </main>
 
-    <script src="js/blog.js"></script>
+    <!-- Scripts -->
+    <script src="js/blog.js" defer></script>
+
 </body>
 </html>

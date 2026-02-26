@@ -1,27 +1,28 @@
-async function loadFullPost() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const postId = urlParams.get('id');
+// blog.js
+document.addEventListener("DOMContentLoaded", async () => {
+  const blogList = document.getElementById("blog-list");
 
-    try {
-        const response = await fetch('./data/blogs.json');
-        const posts = await response.json();
-        const post = posts.find(p => p.id == postId);
+  try {
+    const response = await fetch("data/posts.json");
+    const posts = await response.json();
 
-        if (post) {
-            document.getElementById('post-title').innerText = post.title;
-            document.getElementById('post-category').innerText = post.category;
-            document.getElementById('post-date').innerText = post.date;
-            document.getElementById('post-content').innerHTML = `
-                <p>${post.description}</p>
-                <br>
-                <p>Welcome to my detailed breakdown of this project. In this post, I explore 
-                the engineering challenges I faced and the solutions I implemented using Java 
-                and modern web practices.</p>
-            `;
-        }
-    } catch (error) {
-        console.error("Error loading post:", error);
-    }
-}
+    posts.forEach(post => {
+      const article = document.createElement("article");
+      article.className = "blog-card";
 
-document.addEventListener('DOMContentLoaded', loadFullPost);
+      article.innerHTML = `
+        <span class="category-tag">${post.category}</span>
+        <h2>${post.title}</h2>
+        <p class="blog-preview">${post.content.substring(0, 120)}...</p>
+        <div class="meta">${post.date} • ${post.readTime}</div>
+        <a href="post.html?slug=${post.slug}" class="read-more">Read Article →</a>
+      `;
+
+      blogList.appendChild(article);
+    });
+
+  } catch (err) {
+    console.error("Failed to load posts:", err);
+    blogList.innerHTML = "<p>Failed to load posts.</p>";
+  }
+});

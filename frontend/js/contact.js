@@ -1,64 +1,71 @@
 /**
  * Contact Form Handler
- * Connects the Portfolio Frontend to the Java Spring Boot Backend
+ * Connects Portfolio Frontend to Spring Boot Backend
  */
+console.log("Contact JS loaded");
+
 document.addEventListener('DOMContentLoaded', () => {
+
     const contactForm = document.getElementById('contact-form');
+    if (!contactForm) return;
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-            // Prepare the data to match your Java @RequestBody model
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value
-            };
+        const submitBtn = contactForm.querySelector("button[type='submit']");
+        const originalText = submitBtn.innerText;
 
-            // Visual feedback: Change button state
-            const submitBtn = contactForm.querySelector('button');
-            const originalBtnText = submitBtn.innerText;
-            submitBtn.innerText = "Sending...";
-            submitBtn.disabled = true;
+        const formData = {
+            name: document.getElementById('name').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            message: document.getElementById('message').value.trim()
+        };
 
-            try {
-                const response = await fetch('http://localhost:8080/api/v1/contact', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
+        // Basic validation
+        if (!formData.name || !formData.email || !formData.message) {
+            showFormMessage("All fields are required.", "error");
+            return;
+        }
 
-                if (response.ok) {
-                    const result = await response.text();
-                    showFormMessage("✅ " + result, "success");
-                    contactForm.reset();
-                } else {
-                    showFormMessage("❌ Error: Could not send message.", "error");
-                }
-            } catch (error) {
-                console.error("Connection failed:", error);
-                showFormMessage("⚠️ Backend offline. Ensure Spring Boot is running!", "error");
-            } finally {
-                submitBtn.innerText = originalBtnText;
-                submitBtn.disabled = false;
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Sending...";
+
+        try {
+            const response = await fetch('http://localhost:8080/api/v1/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(errorText || "Submission failed");
             }
-        });
-    }
+
+            const result = await response.text();
+            showFormMessage("✅ " + result, "success");
+            contactForm.reset();
+
+        } catch (error) {
+            console.error("Connection failed:", error);
+            showFormMessage("⚠️ Backend offline. Ensure Spring Boot is running.", "error");
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerText = originalText;
+        }
+    });
 });
 
-// Helper function for cleaner UI feedback instead of alerts
+
 function showFormMessage(message, type) {
-    const statusDiv = document.getElementById('form-status') || createStatusDiv();
+    let statusDiv = document.getElementById('form-status');
+
+    if (!statusDiv) {
+        statusDiv = document.createElement('div');
+        statusDiv.id = 'form-status';
+        document.getElementById('contact-form').appendChild(statusDiv);
+    }
+
     statusDiv.innerText = message;
     statusDiv.className = `status-msg ${type}`;
-}
-
-function createStatusDiv() {
-    const div = document.createElement('div');
-    div.id = 'form-status';
-    document.getElementById('contact-form').appendChild(div);
-    return div;
 }

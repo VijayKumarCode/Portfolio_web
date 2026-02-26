@@ -1,0 +1,47 @@
+[
+  {
+  "id": 1,
+  "slug": "hello-world",
+  "title": "Hello World: My Journey to Java, Open Source, and Ubuntu",
+  "category": "Java Development",
+  "date": "2026-02-18",
+  "readTime": "5 min read",
+  "content": "<p>Starting a career in software engineering feels a lot like writing your first program. You begin with a simple \"Hello World,\" and suddenly, a whole universe of possibilities opens up.</p>\n\n<p>Today, I’m writing my \"Hello World\" blog post to share my journey as I build my path toward becoming a remote software engineer.</p>\n\n<h2>Why Java and Why Remote?</h2>\n<p>I chose Java because it is the backbone of so many systems I admire. It’s structured, powerful, and has a massive community.</p>\n\n<p>My goal is to work remotely, not just for the flexibility, but because remote work allows you to collaborate with the best minds across the globe, regardless of where you are.</p>\n\n<h2>The Dream: Contributing to Ubuntu</h2>\n<p>If there’s one place I truly want to make an impact, it’s Ubuntu. I’ve always admired how Ubuntu makes Linux accessible to everyone. My career objective is to contribute to open-source projects that align with this mission.</p>\n\n<p>Right now, I am:</p>\n\n<ul>\n<li><strong>Strengthening my Java skills:</strong> Moving beyond the basics into more complex applications.</li>\n<li><strong>Mastering DSA:</strong> Solving problems daily to sharpen my logic (and keeping my code organized with clean headers!).</li>\n<li><strong>Learning Open Source Etiquette:</strong> Writing industry-standard commit messages like <code>feat:</code> and <code>docs:</code> because clear communication is just as important as clean code.</li>\n</ul>\n\n<h2>What’s Next?</h2>\n<p>I’m currently looking for beginner-friendly open-source projects in Java where I can help. I believe that the best way to learn is by doing—and the best way to grow is by contributing to something bigger than yourself.</p>\n\n<p>If you’re a recruiter at Canonical, an open-source contributor, or a fellow Java developer, I’d love to connect. I’m ready to learn, code, and contribute.</p>"
+},
+  {
+    "id": 2,
+    "slug": "linux-tips",
+    "title": "Linux Tips for Developers",
+    "category": "Linux",
+    "date": "2026-02-19",
+    "readTime": "4 min read",
+    "content": "<p>Some essential Linux commands and tips for developers...</p>"
+  },
+  {
+    "id": 3,
+    "slug": "dsa-guide",
+    "title": "DSA Guide: From Beginner to Pro",
+    "category": "DSA",
+    "date": "2026-02-20",
+    "readTime": "6 min read",
+    "content": "<p>A beginner-friendly guide to Data Structures and Algorithms...</p>"
+  },
+  {
+    "id": 4,
+    "slug": "computer-network",
+    "title": "Computer Network: From Beginner to Pro",
+    "category": "CN",
+    "date": "2026-02-20",
+    "readTime": "7 min read",
+    "content": "<p>A beginner-friendly guide to Computer networks...</p>"
+  },
+  {
+    "id": 5,
+    "slug": "Automata",
+    "title": "Automata is require: From Beginner to Pro",
+    "category": "Automata",
+    "date": "2026-02-20",
+    "readTime": "10 min read",
+    "content": "<p>A beginner-friendly guide to Automata...</p>"
+  }
+]

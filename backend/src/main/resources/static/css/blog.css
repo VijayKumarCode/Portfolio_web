@@ -1,0 +1,346 @@
+/* =========================================
+   PAGE BACKGROUND
+========================================= */
+body.blog-list-page,
+body.single-post-page {
+    background-color: #f7f9fc;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+#desktop-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    width: 100%;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+
+/* =========================================
+   BLOG WRAPPER
+========================================= */
+.blog-main-container {
+    width: 100%;
+    padding: 2rem 1.5rem;
+}
+
+/* =========================================
+   BREADCRUMB FIX
+========================================= */
+
+.breadcrumb {
+    list-style: none;           /* remove numbers */
+    padding: 0;
+    margin: 1.5rem 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    background: transparent;    /* remove grey bg */
+}
+
+.breadcrumb li {
+    color: #777;
+}
+
+.breadcrumb li::marker {
+    content: ""; /* safety reset */
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb li:last-child {
+    color: #222;
+    font-weight: 600;
+}
+
+/* =========================================
+   BLOG HERO FIX
+========================================= */
+
+.blog-hero {
+    width: 100%;
+    max-width: 1000px;               
+    margin: 0 auto;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #f9fbff 100%
+    );
+
+    border-radius: 18px;
+    border: 1px solid #eef1f5;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+}
+
+/* Title centered */
+.blog-page-title {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    display: block;
+    text-align: center;
+}
+
+.blog-page-title::after {
+    content: "";
+    display: block;
+    
+    /* Responsive width */
+    width: 80%; 
+    max-width: 680px; 
+    height: 3px;
+    
+    /* Ubuntu Premium Gradient - Centered */
+    background: linear-gradient(to right, 
+        transparent 0%, 
+        var(--ubuntu-orange) 50%, 
+        transparent 100%
+    );
+    
+    /* THE FIX: Center the line itself using auto margins */
+    margin: 1rem auto 0 auto; 
+    
+    border-radius: 2px;
+}
+
+/* Subtitle justified */
+.blog-hero p {
+    max-width: 850px;
+    margin: 0 auto;          /* center block */
+    text-align: justify;     /* justified text */
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* =========================================
+   BLOG LIST GRID
+========================================= */
+.blog-list-page {
+    /* PREMIUM BACKGROUND: Subtle technical grid or soft gradient */
+    background-color: #f8f9fa;
+    background-image: 
+        radial-gradient(#e5e7eb 1px, transparent 1px);
+    background-size: 30px 30px; /* Professional subtle grid dots */
+    min-height: 100vh;
+}
+
+/* =========================================
+   PREMIUM BLOG CARD (Left-Aligned + Justified)
+========================================= */
+
+.blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    margin: 4rem auto;
+    max-width: 850px; /* Limits width for optimal readability [cite: 2026-01-17] */
+    padding: 0 2rem;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    width: 100%;
+    background: #ffffff;
+    /* REDUCED HEIGHT: Lowering vertical padding from 2.5rem to 1.5rem */
+    padding: 1.5rem 2.5rem; 
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    transition: 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateX(10px); /* Subtle "Remote-ready" interaction */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Typography Alignment */
+.blog-card h3 {
+    text-align: left;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    color: var(--text-color);
+}
+
+.blog-card p {
+    text-align: justify;       /* ✅ Elite magazine-style edges */
+    text-justify: inter-word;  /* Distributes spacing naturally */
+    line-height: 1.8;
+    color: var(--secondary-color);
+    margin: 1.2rem 0;
+    width: 100%;
+}
+
+.blog-card .meta {
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 500;
+}
+
+/* =========================================
+   SINGLE BLOG POST CARD
+========================================= */
+.blog-post {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 4rem 3rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+    border-top: 6px solid var(--accent);
+}
+
+/* Important: ensure blog article stays block */
+.blog-post {
+    display: block;
+}
+
+
+
+/* =========================================
+   CATEGORY TAG
+========================================= */
+.category-tag {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+/* =========================================
+   TITLE & META
+========================================= */
+.blog-title {
+    font-size: 2.4rem;
+    line-height: 1.25;
+    margin: 0.5rem 0 1rem;
+}
+
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* =========================================
+   BLOG CONTENT
+========================================= */
+.blog-content {
+    margin-top: 2.5rem;
+    line-height: 1.85;
+    font-size: 1.05rem;
+    color: #333;
+}
+
+.blog-content p {
+    margin-bottom: 1.4rem;
+}
+
+.blog-content h2 {
+    margin: 2.5rem 0 1rem;
+    font-size: 1.6rem;
+}
+
+.blog-content ul {
+    margin: 1.2rem 0 1.2rem 1.5rem;
+}
+
+.blog-content li {
+    margin-bottom: 0.6rem;
+}
+
+/* =========================================
+   POST NAVIGATION
+========================================= */
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin: 3.5rem 0;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+/* =========================================
+   AUTHOR BOX
+========================================= */
+.author-box {
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: #fcfcfc;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    border-left: 4px solid var(--accent);
+}
+
+.author-box h3 {
+    margin-bottom: 0.8rem;
+}
+
+/* =========================================
+   LOAD MORE BUTTON
+========================================= */
+.load-more-container {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0 4rem;
+}
+
+.load-more-btn {
+    padding: 0.9rem 2.4rem;
+    border-radius: 2rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.load-more-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
