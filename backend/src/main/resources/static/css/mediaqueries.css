@@ -1,9 +1,101 @@
+/* =========================================
+   MEDIA QUERIES (Breakpoints)
+========================================= */
+
+/* 1. LARGE SCREENS (Up to 1400px) */
+@media screen and (max-width: 1400px) {
+    #profile {
+        height: auto; /* Dynamic height is safer for content than 83vh */
+        margin-bottom: 6rem;
+    }
+}
+
+/* 2. TABLETS & DESKTOP SWITCH (Up to 1200px) */
 @media screen and (max-width: 1200px) {
-    #desktop-nav{
+    #desktop-nav {
         display: none;
     }
-    #hamburger-nav{
+    
+    #hamburger-nav {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        width: 100%;
     }
-  
+
+    .section-container {
+        gap: 2rem;
+    }
+}
+
+/* 3. MOBILE PHONES (Up to 768px) */
+@media screen and (max-width: 768px) {
+    /* Layout & Stacking */
+    section {
+        padding: 4rem 1.5rem;
+    }
+
+    .section-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    #profile {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .profile-pic {
+        width: 280px;
+        height: 280px;
+    }
+
+    /* Experience & Projects Grid */
+    .article-container {
+        grid-template-columns: 1fr; /* Stack skills in a single column */
+    }
+
+    #experience .details-container,
+    #projects .details-container {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    /* Blog Cards */
+    .blog-article-card {
+        flex: 0 0 85%; /* Shows a peek of the next card */
+    }
+
+    /* Titles */
+    .title {
+        font-size: 2rem;
+    }
+
+    /* About Section */
+    .about-containers {
+        flex-direction: column;
+    }
+
+    .details-container {
+        width: 100%;
+    }
+}
+
+/* 4. SMALL MOBILE (Up to 480px) */
+@media screen and (max-width: 480px) {
+    .btn-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .profile-pic {
+        width: 220px;
+        height: 220px;
+    }
 }

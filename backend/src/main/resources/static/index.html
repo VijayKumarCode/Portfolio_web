@@ -23,41 +23,46 @@
 </head>
 
 <body> 
-    <header>
-        <nav id="desktop-nav" aria-label="Desktop Navigation">
-            <a href="/" class="logo">Vijay Kumar</a>
-            <ul class="nav-links">
+   <header>
+    <nav id="desktop-nav" aria-label="Desktop Navigation">
+        <a href="/" class="logo-container">
+            <img src="assets/logo.png" alt="Vijay Kumar Logo" class="logo-img">
+            <!--<span class="logo-text">Vijay Kumar</span>-->
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <nav id="hamburger-nav" aria-label="Mobile Navigation">
+        <a href="/" class="logo-container">
+            <img src="assets/logo.png" alt="Vijay Kumar Logo" class="logo-img">
+            <!--<span class="logo-text">Vijay Kumar</span>-->
+        </a>
+        <div class="hamburger-menu">
+            <button class="hamburger-icon"
+                id="hamburger-toggle"
+                aria-label="Toggle menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="menu-links" id="mobile-menu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
-        
-        <nav id="hamburger-nav" aria-label="Mobile Navigation">
-            <a href="/" class="logo">Vijay Kumar</a>
-            <div class="hamburger-menu">
-                <button class="hamburger-icon"
-                id="hamburger-toggle"
-                aria-label="Toggle menu"
-                aria-expanded="false"
-                aria-controls="mobile-menu">
-
-                <span></span>
-                <span></span>
-                <span></span>
-                    </button>
-                <ul class="menu-links" id="mobile-menu">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
 <main>
     <section id="profile" aria-labelledby="profile-name">
@@ -292,55 +297,6 @@
 
 </section>
 
-<!-- <section id="blog">
-    <p class="section__text__p1">Sharing My Journey</p>
-    <h2 class="title">Engineering Log</h2>
-    
-
-    <div class="experience-details-container">
-        <div class="blog-scroll-track">
-
-            <article class="blog-article-card">
-                <p class="category-tag">Java Development</p>
-                <h3>Hello World: My Journey to Java, Open Source, and Ubuntu</h3>
-                <p>Starting a career in software engineering feels a lot like writing your first program...</p>
-                 <a href="post.html?slug=${post.slug}" 
-                 class="read-more">Read More</a>
-            </article>
-
-            <article class="blog-article-card">
-                <p class="category-tag">Linux</p>
-                <h3>Open Source at Ubuntu</h3>
-                <p>Contributing to the Linux ecosystem...</p>
-                <a href="post.html?slug=${post.slug}" 
-                class="read-more">Read More</a>
-            </article>
-
-        <article class="blog-article-card">
-            <p class="category-tag">DSA</p>
-            <h3>DSA for Engineers</h3>
-            <p>Optimizing Space Complexity in Java...</p>
-            <a href="post.html?slug=${post.slug}" 
-            class="read-more">Read More</a>
-        </article>
-    </div>
-
-        <button class="blog-move-btn"
-            id="move-btn"
-            type="button"
-            aria-label="Scroll blog articles right">
-            &#10095;
-        </button>
-    </div>
-
-    <a href="#contact">
-        <img src="./assets/arrow.png"
-         alt="Scroll to contact section"
-         class="icon arrow" />
-    </a>
-
-</section> -->
-
 <section id="blog">
     <p class="section__text__p1">Sharing My Journey</p>
     <h2 class="title">Engineering Log</h2>
@@ -363,7 +319,7 @@
     <a href="#contact">
         <img src="./assets/arrow.png"
              alt="Scroll to contact section"
-             class="icon section-scroll-arrow" 
+             class="icon arrow" 
              loading="lazy"/>
     </a>
 </section>
