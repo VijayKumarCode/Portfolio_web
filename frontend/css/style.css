@@ -47,25 +47,11 @@ ul {
     list-style: none;
 }
 
+/* =========================================
+   HAMBURGER MENU & ICONS (Hidden on Desktop)
+========================================= */
 #hamburger-nav {
-    display: none; /* hidden on desktop */
-}
-
-/* Show only on mobile */
-@media (max-width: 768px) {
-
-    #desktop-nav {
-        display: none;
-    }
-
-    #hamburger-nav {
-        display: flex;
-        justify-content: space-between; /* 🔥 pushes icon right */
-        align-items: center;
-        padding: 1rem 2rem;
-        width: 100%;
-        position: relative;
-    }
+    display: none; 
 }
 
 .hamburger-icon {
@@ -74,7 +60,6 @@ ul {
     cursor: pointer;
     width: 30px;
     height: 22px;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -92,22 +77,20 @@ ul {
     display: none;
     flex-direction: column;
     gap: 1rem;
-
     position: absolute;
     top: 70px;
     right: 20px;
-
     background: white;
     padding: 1rem 1.5rem;
     border-radius: 1rem;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
+}
 
-    .menu-links.open {
-        display: flex;
-    }
+.menu-links.open {
+    display: flex;
+}
 
-    /* Animation */
+/* Menu Animation */
 .hamburger-icon.open span:nth-child(1) {
     transform: rotate(45deg) translateY(8px);
 }
@@ -139,7 +122,6 @@ section {
 .section__text__p1 {
     text-align: center;
     color: var(--secondary);
-    /*margin-bottom: 0.5rem;*/
 }
 
 .title {
@@ -153,18 +135,41 @@ section {
 header {
     position: sticky;
     top: 0;
-    background: white;
+    background: var(--bg);
     z-index: 1000;
     border-bottom: 1px solid var(--border);
+    margin-bottom: 0;
 }
 
 nav {
     max-width: var(--max-width);
-    margin: auto;
-    padding: 1rem 2rem;
+    margin: 0 auto;
+    /* ✅ Reduced padding to 0 vertically to let the logo define the height */
+    padding: 0 2rem; 
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 80px; /* ✅ Set a fixed height for a consistent professional look */
+}
+
+.logo-container {
+    display: flex; /* ✅ Kills the "inline baseline" gap at the bottom */
+    align-items: center;
+    text-decoration: none;
+    padding: 0; 
+    height: 100%; /* Ensures the clickable area spans the navbar height */
+}
+
+.logo-img {
+    height: 50px; /* ✅ Slightly reduced to fit better within an 80px nav */
+    width: auto;
+    display: block; /* ✅ Further prevents any stray spacing */
+    object-fit: contain;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-container:hover .logo-img {
+    transform: scale(1.05);
 }
 
 .logo {
@@ -190,8 +195,8 @@ nav {
 ========================================= */
 #profile {
     display: flex;
-    justify-content: center;   /* Centers the whole group horizontally */
-    align-items: center;       /* Vertical alignment */
+    justify-content: center;
+    align-items: center;
     gap: 3rem;
 }
 
@@ -201,7 +206,7 @@ nav {
     border-radius: 50%;
     object-fit: cover;
     background-color: #f0f0f0;
-    border: 6px solid #ffffff; /* Clean white border */
+    border: 6px solid #ffffff;
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
@@ -214,7 +219,6 @@ nav {
     font-weight: 600;
     margin: 0.5rem 0;
 }
-
 
 #socials-container {
     display: flex;
@@ -341,11 +345,9 @@ nav {
     transition: 0.3s ease;
 }
 
-
 /* =========================================
    EXPERIENCE
 ========================================= */
-
 #experience .section__text__p1 {
     margin-bottom: 0.5rem;
 }
@@ -357,7 +359,7 @@ nav {
 #experience .section-container {
     display: flex;
     justify-content: center;
-    align-items: stretch;  /* THIS makes them equal height */
+    align-items: stretch;
     gap: 3rem;
     flex-wrap: wrap;
     max-width: var(--max-width);
@@ -382,11 +384,18 @@ nav {
     margin-bottom: 2rem;
 }
 
-
 .article-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;  /* 2 columns */
+    grid-template-columns: 1fr 1fr;
     gap: 1.5rem 2rem;
+    
+    /* THE FIX: Center the grid itself and its items */
+    justify-content: center;   /* Centers the grid within the container */
+    align-items: center;       /* Centers items vertically */
+    justify-items: start;      /* Keeps checkmarks aligned left but centers the group */
+    
+    width: fit-content;        /* Shrink to content so margin: auto works */
+    margin: 0 auto;            /* Horizontal center */
 }
 
 article {
@@ -415,7 +424,7 @@ article p {
    PROJECTS
 ========================================= */
 #projects {
-    padding: 5rem 2rem 4rem;
+    padding: 2.4rem 2rem 4rem; 
 }
 
 #projects .section__text__p1 {
@@ -426,8 +435,6 @@ article p {
     margin-bottom: 1.5rem;
 }
 
-
-
 #projects .section-container {
     align-items: stretch;
 }
@@ -437,7 +444,7 @@ article p {
     max-width: 350px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* THIS is key */
+    justify-content: space-between;
 }
 
 .project-img {
@@ -458,7 +465,6 @@ article p {
 }
 
 .details-container.color-container:hover {
-    /*box-shadow: 0 10px 25px rgba(0,0,0,0.08);*/
     transform: translateY(-5px);
     transition: 0.3s ease;
 }
@@ -466,42 +472,49 @@ article p {
 /* =========================================
    BLOG
 ========================================= */
-
-/* =========================================
-   BLOG
-========================================= */
-
 #blog {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Anchor for the absolute button */
+    padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 8rem 2rem;
 }
 
-#blog .title {
-    margin-bottom: 2rem;
+/* Centering the underline */
+#blog .title::after {
+    content: "";
+    display: block;
+    width: 100px;           /* Keep it short for a premium feel */
+    height: 4px;
+    background: #E95420;   /* Ubuntu Orange accent */
+    margin: 1rem auto;     /* THE FIX: auto margins center block-level pseudo-elements */
+    border-radius: 10px;
 }
 
-#blog .section__text__p1 {
-    margin-bottom: 0.5rem;
-}
+
 #blog .blog-wrapper {
+    position: relative; 
     display: flex;
     align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Matches your Project section width */
+    margin: 0 auto;
 }
 
 #blog .blog-container {
     display: flex;
     gap: 2rem;
-
+    width: 100%;
     overflow-x: auto;
-    scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-
+    scrollbar-width: none;
+    padding: 1rem 0;
 }
 
 #blog .blog-container::-webkit-scrollbar {
-    height: 8px;   /* horizontal scrollbar height */
+    height: 8px;
 }
 
 #blog .blog-container::-webkit-scrollbar-track {
@@ -518,72 +531,70 @@ article p {
     background: #94a3b8;
 }
 
-/* 3. The Cards: Ensure they don't shrink */
 .blog-article-card {
-    flex: 0 0 calc((100% - 4rem) / 3);  /* 3 cards + 2 gaps */
-
-    scroll-snap-align: start;
+    /* Dimensions synced with Projects section */
+    flex: 0 0 calc((100% - 4rem) / 3); 
+    max-width: 350px; 
+    min-height: 320px;
+    
+    /* THE FIX: Restore vertical stacking */
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    min-height: 260px;   /* equal size */
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: flex-start;
+    
     padding: 1.5rem;
-
-    border-radius: var(--radius);
+    border-radius: 2rem; /* Matches Project card curvature */
     border: 1px solid var(--border);
     background: var(--light-bg);
+    transition: 0.3s ease;
+    text-align: left;
+}
+
+.blog-article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Adds that premium lift */
+}
+
+.blog-article-card h3, 
+.blog-article-card p, 
+.blog-article-card .read-more {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.8rem;
+}
+
+.blog-article-card .category-tag{
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
 }
 
 .blog-move-btn {
     position: absolute;
-    right: -25px;      /* slight outside, not too far */
-
-    width: 55px;
-    height: 55px;
-
+    /* Positioned relative to the #blog section, not the card */
+    top: 50%; 
+    right: -25px; 
+    transform: translateY(-50%);
+    z-index: 5;
+    
+    /* Clean, reduced dimensions */
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
+    background: #fff;
     border: 1px solid #e5e7eb;
-    background: white;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     cursor: pointer;
-}
-
-
-.blog-article-card:hover {
-    transform: translateY(-5px);
-    transition: 0.3s ease;
-}
-
-.blog-article-card h3,
-.blog-article-card p {
-    text-align: justify;
-}
-
-.category-tag {
-    font-size: 0.8rem;
-    color: var(--accent);
-    font-weight: 600;
-}
-
-.section-scroll-arrow {
-  position: absolute;
-  right: -0.5rem;
-  bottom: 2rem;
-  width: 30px;  /* enforce smaller size */
-  height: 30px; /* match */
-  cursor: pointer;
 }
 
 /* =========================================
    CONTACT
 ========================================= */
-
 #contact {
     min-height: 82vh;
     display: flex;
@@ -594,7 +605,7 @@ article p {
 }
 
 .contact-section-container {
-   display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
@@ -620,6 +631,7 @@ article p {
     border-radius: 1rem;
     border: 1px solid var(--border);
     box-sizing: border-box;
+    transition: var(--transition); /* Smooth transition for focus state */
 }
 
 #contact-form label {
@@ -633,7 +645,9 @@ article p {
 #contact-form textarea:focus {
     outline: none;
     border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); /* Enhanced accessibility focus ring */
 }
+
 #contact-form button {
     width: 100%;
 }
@@ -641,7 +655,6 @@ article p {
 /* =========================================
    FOOTER
 ========================================= */
-
 footer {
     padding: 2rem 0;
     text-align: center;
@@ -653,30 +666,43 @@ footer ul {
 }
 
 footer .nav-links {
-     display: flex;
+    display: flex;
     justify-content: center;
     gap: 2rem;
 }
 
 /* =========================================
-   RESPONSIVE
+   RESPONSIVE (Consolidated Media Queries)
 ========================================= */
 @media (max-width: 768px) {
+    /* Layout & Stacking */
     .section-container {
         flex-direction: column;
         text-align: center;
     }
 
+    #profile {
+        flex-direction: column; /* Fixed hero squishing */
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 280px;
+        height: 280px;
+    }
+
+    /* Navigation */
+    #desktop-nav,
     .nav-links {
         display: none;
     }
 
     #hamburger-nav {
         display: flex;
-    }
-
-    .profile-pic {
-        width: 280px;
-        height: 280px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        width: 100%;
+        position: relative;
     }
 }

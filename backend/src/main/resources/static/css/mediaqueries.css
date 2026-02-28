@@ -1,101 +1,121 @@
+
 /* =========================================
    MEDIA QUERIES (Breakpoints)
 ========================================= */
 
 /* 1. LARGE SCREENS (Up to 1400px) */
 @media screen and (max-width: 1400px) {
-    #profile {
-        height: auto; /* Dynamic height is safer for content than 83vh */
-        margin-bottom: 6rem;
+    #profile, #contact {
+        height: auto; 
+        min-height: auto; 
+        margin-bottom: 4rem;
+    }
+
+    .logo-img {
+        width: auto !important; 
+        height: 60px;
+        object-fit: contain;
     }
 }
 
 /* 2. TABLETS & DESKTOP SWITCH (Up to 1200px) */
 @media screen and (max-width: 1200px) {
-    #desktop-nav {
-        display: none;
-    }
+  #desktop-nav { display: none; }
     
     #hamburger-nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 2rem;
-        width: 100%;
+        padding: 0 1.5rem;
+        height: 70px;
     }
 
-    .section-container {
-        gap: 2rem;
+    #hamburger-nav .logo-img {
+        height: 45px; 
+        width: auto;
+        object-fit: contain;
+    }
+
+    .arrow {
+        display: none !important;
+    }
+
+     .details-container img[onclick] {
+        display: none !important;
     }
 }
 
 /* 3. MOBILE PHONES (Up to 768px) */
 @media screen and (max-width: 768px) {
-    /* Layout & Stacking */
     section {
-        padding: 4rem 1.5rem;
+        padding: 2.5rem 1rem !important;
     }
 
-    .section-container {
+    /* Blog Card Alignment */
+   .blog-wrapper {
         flex-direction: column;
-        text-align: center;
         align-items: center;
     }
 
-    #profile {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .profile-pic {
-        width: 280px;
-        height: 280px;
-    }
-
-    /* Experience & Projects Grid */
-    .article-container {
-        grid-template-columns: 1fr; /* Stack skills in a single column */
-    }
-
-    #experience .details-container,
-    #projects .details-container {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
-
-    /* Blog Cards */
     .blog-article-card {
-        flex: 0 0 85%; /* Shows a peek of the next card */
+        width: 90vw; /* Force cards to stay within screen */
+        margin-bottom: 1.5rem;
     }
 
-    /* Titles */
-    .title {
-        font-size: 2rem;
-    }
-
-    /* About Section */
-    .about-containers {
-        flex-direction: column;
-    }
-
-    .details-container {
+    /* ✅ Fix: Contact Section All-Screen Friendly */
+   #contact {
         width: 100%;
+        padding: 2rem 5%; /* Side padding as percentage is safer */
+        min-height: auto !important;
+    }
+
+    .contact-form-container {
+        width: 100%;
+        max-width: 90vw; /* ✅ Prevents overflow on narrow screens */
+        margin: 0 auto;
+    }
+
+    .contact-info-upper-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        width: 100%;
+    }
+
+    /* ✅ Fix: Footer visibility on all screens */
+    footer {
+        height: auto;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+    
+    footer .nav-links {
+        display: flex;
+        flex-wrap: wrap; /* Prevents links from squishing off-screen */
+        justify-content: center;
+        gap: 1.5rem;
     }
 }
 
 /* 4. SMALL MOBILE (Up to 480px) */
 @media screen and (max-width: 480px) {
-    .btn-container {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .btn {
-        width: 100%;
+    .title {
+        font-size: 1.8rem;
     }
 
     .profile-pic {
-        width: 220px;
-        height: 220px;
+        width: 200px;
+        height: 200px;
+    }
+
+    #hamburger-nav .logo-img {
+        height: 35px;
+    }
+
+    #contact-form input, 
+    #contact-form textarea {
+        font-size: 14px;
+        padding: 0.8rem;
     }
 }

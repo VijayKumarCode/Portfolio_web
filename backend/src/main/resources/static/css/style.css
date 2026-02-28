@@ -135,52 +135,46 @@ section {
 header {
     position: sticky;
     top: 0;
-    background: white;
+    background: var(--bg);
     z-index: 1000;
     border-bottom: 1px solid var(--border);
+    margin-bottom: 0;
 }
 
 nav {
     max-width: var(--max-width);
-    margin: auto;
-    padding: 1rem 2rem;
+    margin: 0 auto;
+    /* ✅ Reduced padding to 0 vertically to let the logo define the height */
+    padding: 0 2rem; 
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 80px; /* ✅ Set a fixed height for a consistent professional look */
+}
+
+.logo-container {
+    display: flex; /* ✅ Kills the "inline baseline" gap at the bottom */
+    align-items: center;
+    text-decoration: none;
+    padding: 0; 
+    height: 100%; /* Ensures the clickable area spans the navbar height */
+}
+
+.logo-img {
+    height: 50px; /* ✅ Slightly reduced to fit better within an 80px nav */
+    width: auto;
+    display: block; /* ✅ Further prevents any stray spacing */
+    object-fit: contain;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-container:hover .logo-img {
+    transform: scale(1.05);
 }
 
 .logo {
     font-weight: 600;
     font-size: 1.5rem;
-}
-
-/* Ensure the logo container behaves as a professional brand block */
-.logo-container, 
-.logo-container:hover, 
-.logo-img, 
-.logo-img:hover {
-    /* ✅ Forces background to stay transparent on hover */
-    background-color: transparent !important; 
-    background: none !important;
-    outline: none;
-    border: none;
-}
-
-.logo-img {
-    height: 100px; 
-    width: auto;
-    object-fit: contain;
-    mix-blend-mode: multiply; /* Keeps white pixels "invisible" */
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.logo-container:hover .logo-img {
-    /* ✅ Premium interaction: slight scale instead of background change */
-    transform: scale(1.05);
-    opacity: 0.8; 
-    
-    /* Re-stating blend mode to ensure it doesn't drop during transition */
-    mix-blend-mode: multiply; 
 }
 
 .nav-links {
@@ -282,6 +276,7 @@ nav {
 /* =========================================
    ABOUT SECTION
 ========================================= */
+
 #about .section__text__p1 {
     margin-bottom: 0.5rem;
 }
@@ -309,16 +304,17 @@ nav {
 }
 
 .about-containers {
-    display: flex;
+     display: flex;
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
 }
 
 .text-container {
-    text-align: left; /* Refined for better readability */
-    max-width: 700px;
-    margin: 0 auto;
+    text-align: justify;
+    text-justify: inter-word; /* Distributes space evenly between words */
+    max-width: 700px;         /* Keeps the text block from getting too wide */
+    margin: 0 auto;          /* Keeps the whole justified block centered in the container */
     line-height: 1.8;
 }
 
@@ -485,18 +481,6 @@ article p {
     max-width: 1200px;
     margin: 0 auto;
 }
-
-/* Centering the underline */
-#blog .title::after {
-    content: "";
-    display: block;
-    width: 100px;           /* Keep it short for a premium feel */
-    height: 4px;
-    background: #E95420;   /* Ubuntu Orange accent */
-    margin: 1rem auto;     /* THE FIX: auto margins center block-level pseudo-elements */
-    border-radius: 10px;
-}
-
 
 #blog .blog-wrapper {
     position: relative; 
