@@ -2,10 +2,6 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/(js|css)/(.*)",
-      "destination": "/src/main/resources/static/$1/$2"
-    },
-    {
       "source": "/(.*)",
       "destination": "/src/main/resources/static/$1"
     }
