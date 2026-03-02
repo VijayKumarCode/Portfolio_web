@@ -388,14 +388,12 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem 2rem;
-    
-    /* THE FIX: Center the grid itself and its items */
-    justify-content: center;   /* Centers the grid within the container */
-    align-items: center;       /* Centers items vertically */
-    justify-items: start;      /* Keeps checkmarks aligned left but centers the group */
-    
-    width: fit-content;        /* Shrink to content so margin: auto works */
-    margin: 0 auto;            /* Horizontal center */
+    flex-direction: column;
+    justify-content: center;   
+    align-items: center;      
+    justify-items: start;     
+    width: fit-content;       
+    margin: 0 auto;            
 }
 
 article {
@@ -476,7 +474,7 @@ article p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative; /* Anchor for the absolute button */
+    position: relative;
     padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -487,7 +485,7 @@ article p {
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 1200px; /* Matches your Project section width */
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -495,42 +493,21 @@ article p {
     display: flex;
     gap: 2rem;
     width: 100%;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    padding: 1rem 0;
-}
-
-#blog .blog-container::-webkit-scrollbar {
-    height: 8px;
-}
-
-#blog .blog-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-#blog .blog-container::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 10px;
-}
-
-#blog .blog-container::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    padding: 2rem 0;
+    overflow-x: auto;        
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: thin; 
 }
 
 .blog-article-card {
-    /* Dimensions synced with Projects section */
     flex: 0 0 calc((100% - 4rem) / 3); 
     max-width: 350px; 
     min-height: 320px;
-    
-    /* THE FIX: Restore vertical stacking */
     display: flex;
     flex-direction: column; 
     justify-content: flex-start;
     align-items: flex-start;
-    
     padding: 1.5rem;
     border-radius: 2rem; /* Matches Project card curvature */
     border: 1px solid var(--border);
@@ -541,7 +518,7 @@ article p {
 
 .blog-article-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Adds that premium lift */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .blog-article-card h3, 
@@ -552,7 +529,7 @@ article p {
     margin-bottom: 0.8rem;
 }
 
-.blog-article-card .category-tag{
+.blog-article-card .category-tag {
     display: inline-block;
     color: var(--accent);
     font-weight: 600;
@@ -562,23 +539,14 @@ article p {
     margin-bottom: 1rem;
 }
 
-.blog-move-btn {
+.arrow-contact {
     position: absolute;
-    /* Positioned relative to the #blog section, not the card */
-    top: 50%; 
-    right: -25px; 
-    transform: translateY(-50%);
-    z-index: 5;
-    
-    /* Clean, reduced dimensions */
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    bottom: 2rem;
+    right: 0.1rem;
+    width: 30px;
     cursor: pointer;
 }
+
 
 /* =========================================
    CONTACT
@@ -609,6 +577,11 @@ article p {
 
 #contact-form {
     text-align: left;
+}
+
+#contact-form .btn {
+    display: block;
+    margin: 0.1rem auto 0;
 }
 
 #contact-form input,
