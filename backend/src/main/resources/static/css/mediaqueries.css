@@ -50,6 +50,23 @@
         padding: 2.5rem 1rem !important;
     }
 
+    .btn-container {
+        display: flex;
+        flex-direction: row;    /* Switch from column to row */
+        justify-content: center; /* Center buttons horizontally */
+        gap: 1rem;              /* Space between buttons */
+        width: 100%;
+        margin-top: 1.5rem;      /* Breathing room from the text above */
+    }
+
+    .btn-container .btn {
+        /* Ensure buttons don't take full width in row mode */
+        width: auto; 
+        min-width: 140px;       /* Keeps them consistent sizes */
+        padding: 0.8rem 1.2rem; /* Maintain the "short" design look */
+        font-size: 0.9rem;
+    }
+
       #experience .article-container {
         display: grid;
         grid-template-columns: max-content; 
@@ -234,6 +251,16 @@ footer .nav-links {
         height: 180px;
     }
 
+    .btn-container {
+        gap: 0.5rem;            /* Shorter space for smaller screens */
+    }
+
+    .btn-container .btn {
+        min-width: 120px;       /* Slightly narrower for small phones */
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+
     .blog-article-card h3 {
         font-size: 1.1rem;
     }
@@ -248,12 +275,6 @@ footer .nav-links {
     #contact-form textarea {
         font-size: 16px; 
         padding: 1rem;
-    }
-
-    .btn-container {
-        flex-direction: column;
-        width: 100%;
-        gap: 1rem;
     }
 
     footer {
