@@ -26,7 +26,7 @@ public class CorsConfig {
                         .allowedOrigins(
                             "http://127.0.0.1:5500",      // Local Development (Python Server)
                             "http://localhost:5500",       // Alternative local address
-                            "https://your-portfolio.vercel.app" // Production Vercel URL
+                            "https://vijaykumarcode.vercel.app" // Production Vercel URL
                         )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
