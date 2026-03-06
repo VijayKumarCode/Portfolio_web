@@ -10,6 +10,7 @@ import com.vijaykumar.portfolio.model.ContactRequest;
 import com.vijaykumar.portfolio.service.ContactService;
 import com.vijaykumar.portfolio.dto.ApiResponse;
 
+@CrossOrigin(origins = "https://vijaykumarcode.vercel.app")
 @RestController
 @RequestMapping("/api/v1")
 public class ContactController {
