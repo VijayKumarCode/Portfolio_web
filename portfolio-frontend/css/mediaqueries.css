@@ -50,9 +50,9 @@
     }
 
     .section__text__p2 {
-        font-size: 1.15rem; /* Down slightly from 1.25/1.5rem */
+        font-size: 1.5rem;
         margin: 0.4rem 0;
-        line-height: 1.4;
+        line-height: 1.9;
     }
 
     .profile-subtitle {
@@ -244,9 +244,9 @@
     }
 
     .section__text__p2 {
-        font-size: 0.85rem; /* Scaled down to fit 375px screens perfectly */
+        font-size: 1rem; /* Scaled down to fit 375px screens perfectly */
         font-weight: 500;
-        line-height: 1.4;
+        line-height: 1.5;
         margin-top: 0.2rem;
         white-space: nowrap; /* Forces the text to stay on a single line */
     }
