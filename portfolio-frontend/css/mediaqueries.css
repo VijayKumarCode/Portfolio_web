@@ -90,7 +90,7 @@
 
     /* Blog Section */
     .blog-header {
-        text-align: center;
+        text-align:justify;
         position: relative;
         margin-bottom: 2rem;
     }
@@ -160,6 +160,22 @@
     .blog-article-card p {
         font-size: 0.85rem;
         line-height: 1.3;
+    }
+
+    .blog-post {
+        max-width: 95%;        /* Takes up more screen width on tablets */
+        padding: 3rem 2rem;    /* Reduced padding for better text flow */
+        margin: 1.5rem auto;   /* Added vertical margin to separate from nav/footer */
+        border-radius: 8px;
+    }
+
+    .blog-title {
+        font-size: 2.1rem;     /* Slightly scaled down from 2.4rem */
+        line-height: 1.3;
+    }
+
+    .blog-content {
+        font-size: 1.1rem;     /* Slightly larger for comfortable tablet reading */
     }
 
     #blog .BlogVerticalScroller::-webkit-scrollbar,
@@ -238,80 +254,142 @@
 /* 4. SMALL MOBILE (Up to 480px) */
 @media screen and (max-width: 480px) {
 
-    .section__text {
-        width: 100%;
-        padding: 0 1rem; 
+   .profile-subtitle,
+.section__text__p2 {
+    font-size: 0.88rem; 
+    font-weight: 500;
+    line-height: 1.4;
+    margin-top: 0.2rem;
+    white-space: nowrap; 
+    text-align: center;
+}
+
+.title {
+    font-size: 1.65rem;
+    letter-spacing: -0.5px;
+}
+
+.profile-pic {
+    width: 170px;
+    height: 170px;
+    margin-bottom: 1rem;
+}
+
+/* Touch-Friendly Interaction */
+.btn-container {
+    gap: 0.75rem;
+}
+
+.btn-container .btn {
+    min-width: 130px;
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+}
+
+/* Blog Hero & List Fixes */
+.blog-post {
+        width: 100%;           /* Full width on small phones */
+        max-width: 100%;
+        padding: 2.5rem 1.2rem; /* Tight horizontal padding for maximum text space */
+        margin: 0;             /* Flush with screen edges for a "native app" feel */
+        border-radius: 0;      /* Remove rounded corners on full-width view */
+        box-shadow: none;      /* Flat design looks cleaner on small mobile */
+        border-top-width: 5px; /* Slightly thinner accent line */
     }
 
-    .section__text__p2 {
-        font-size: 1rem; /* Scaled down to fit 375px screens perfectly */
-        font-weight: 500;
-        line-height: 1.5;
-        margin-top: 0.2rem;
-        white-space: nowrap; /* Forces the text to stay on a single line */
+    .blog-title {
+        font-size: 1.8rem;     /* Bold and readable without overwhelming the screen */
+        text-align: left;
+        hyphens: auto;         /* Prevents long titles from breaking layout */
     }
 
-    .title {
-        font-size: 1.6rem;
+    .post-meta {
+        font-size: .87rem;
+        gap: 0.2rem;
+        margin-bottom: 0.1rem;
     }
 
-    /* The Fix: Target only the new class, drop font size slightly to prevent wrapping */
-    .profile-subtitle {
-        font-size: 0.9rem; 
-        font-weight: 500;
-        line-height: 1.4;
-        margin-top: 0.2rem;
+    .blog-content {
+        font-size: 1rem;       /* Standard mobile reading size */
+        line-height: 1.7;      /* Increased line-height for easier scanning */
     }
 
-    .profile-pic {
-        width: 180px;
-        height: 180px;
+    .blog-content h2 {
+        font-size: 1.4rem;     /* Subheaders clearly distinguished from body text */
+        margin: 2rem 0 0.8rem;
     }
 
-    .btn-container {
-        gap: 0.5rem;
+    /* Adjusting images or code blocks inside the post if they exist */
+    .blog-content img {
+        border-radius: 4px;
+        margin: 1rem -1.2rem;  /* "Bleed" effect: image touches screen edges */
+        width: calc(100% + 2.4rem);
     }
 
-    .btn-container .btn {
-        min-width: 120px;
-        padding: 0.7rem 1rem;
-        font-size: 0.85rem;
+    .blog-hero {
+        padding: 1.5rem 1rem;
+        box-shadow: none;
+        border: 1px solid #eee;
     }
 
-    .blog-article-card h3 {
-        font-size: 1.1rem;
+    .blog-page-title {
+        font-size: 1.4rem;
+    }
+
+    .blog-hero p {
+        font-size: 0.95rem;
+        text-align: left; /* Justification on very small screens can be hard to read */
+    }
+
+    .blog-list {
+        gap: 1.8rem;
+        margin: 1.5rem 0;
+        padding: 0;
+    }
+
+    .blog-card {
+        padding: 1.2rem 1.5rem;
+        border-left-width: 3px;
+    }
+
+    .blog-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .blog-card p {
+        font-size: 0.88rem;
+        line-height: 1.6;
+        text-align: justify;
+        hyphens: auto; /* Prevents "rivers" of white space on mobile justification */
+    }
+
+    .author-box {
+        padding: 1.5rem;
+        margin-top: 2.5rem;
     }
     
-    .blog-article-card p {
-        font-size: 0.85rem;
-        padding: 0 5px;
-    }
-  
-    #contact-form input, 
-    #contact-form textarea {
-        font-size: 16px; 
-        padding: 1rem;
+    .author-box p {
+        font-size: 0.9rem;
+        hyphens: auto; /* Essential for mobile justification */
     }
 
-    footer {
-        padding: 20px 0;       
-    }
+/* Form & Footer */
+#contact-form input, 
+#contact-form textarea {
+    font-size: 16px; /* Prevents iOS auto-zoom on click */
+    padding: 0.9rem;
+}
 
-    footer .nav-links {
-        gap: 0.8rem;           
-        padding: 0 10px;       
-    }
+footer .nav-links {
+    gap: 0.8rem;
+    font-size: 0.85rem;
+}
 
-    footer .nav-links li a {
-        font-size: 0.9rem;     
-    }
-    
-    footer p {
-        margin-top: 5px;      
-        font-size: 0.8rem;
-        line-height: 1.2;      
-        color: #666;           
-    }
+footer p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
 }
 
 
