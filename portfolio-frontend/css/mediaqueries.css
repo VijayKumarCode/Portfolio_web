@@ -1,9 +1,9 @@
 
 /* 1. LARGE SCREENS (Up to 1400px) */
 @media screen and (max-width: 1400px) {
-   #profile, #contact {
-        height: auto; 
-        min-height: auto; 
+  #profile, #contact {
+        height: auto;
+        min-height: auto;
         margin-bottom: 4rem;
     }
 
@@ -39,15 +39,37 @@
 /* 3. MOBILE PHONES (Up to 768px) */
 
 @media screen and (max-width: 768px) {
+
     section {
-        padding: 2.5rem 1rem !important;
+        padding-top: 2rem; /* Even smaller gap for mobile */
     }
 
-    .section__text {
-        max-width: 90vw;
+ #profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 0;
         text-align: center;
-        margin: 0 auto;
     }
+
+/* 2. Remove side margins from the picture container */
+.section__pic-container {
+    margin-bottom: 2rem; /* Reduced from 0.5rem */
+    width: auto;
+    height: auto;
+    flex: none; /* This kills the 350px basis that's pushing the text down */
+  }
+
+  .section__text {
+    margin-top: -1rem; /* Pulls the text upward slightly if needed */
+  }
+
+/* 3. Ensure title is responsive (Move below main class) */
+.title {
+    text-align: center;
+    font-size: 2.8rem;
+}
 
     .section__text__p2 {
         font-size: 1.5rem;
@@ -254,8 +276,15 @@
 /* 4. SMALL MOBILE (Up to 480px) */
 @media screen and (max-width: 480px) {
 
+ 
+  
+  /* The Fix for the gap */
+  #profile {
+    gap: 0.5rem; /* Tighten the space between pic and text */
+  }
+
    .profile-subtitle,
-.section__text__p2 {
+    .section__text__p2 {
     font-size: 0.88rem; 
     font-weight: 500;
     line-height: 1.4;
@@ -264,10 +293,10 @@
     text-align: center;
 }
 
-.title {
+   .title {
     font-size: 1.65rem;
     letter-spacing: -0.5px;
-}
+  }
 
 .profile-pic {
     width: 170px;
