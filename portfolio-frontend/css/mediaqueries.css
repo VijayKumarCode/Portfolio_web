@@ -49,21 +49,20 @@
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-        margin-top: 0;
+        margin-top: 1.5rem;
         text-align: center;
     }
 
 /* 2. Remove side margins from the picture container */
 .section__pic-container {
-    margin-bottom: 5rem; /* Reduced from 0.5rem */
     width: auto;
     height: auto;
     flex: none; /* This kills the 350px basis that's pushing the text down */
   }
 
   .section__text {
-    margin-top: -1rem;
-    margin-bottom: 2rem; /* Pulls the text upward slightly if needed */
+    margin-top: 5rem;
+    margin-bottom: 1rem; /* Pulls the text upward slightly if needed */
   }
 
 /* 3. Ensure title is responsive (Move below main class) */
@@ -101,6 +100,7 @@
         font-size: 0.9rem;
     }
 
+    
     #experience .article-container {
         display: grid;
         grid-template-columns: max-content; 
